@@ -1,4 +1,4 @@
-package com.daydreamdev.secondskill.common.stockWithRedis;
+package com.daydreamdev.secondskill.common.StockWithRedis;
 
 import com.daydreamdev.secondskill.common.utils.RedisPool;
 import com.daydreamdev.secondskill.common.utils.RedisPoolUtil;
@@ -27,7 +27,7 @@ public class StockWithRedis {
             // 开始事务
             Transaction transaction = jedis.multi();
             // 事务操作
-            RedisPoolUtil.decr(RedisKeysConstant.STOCK_COUNT + stock.getId());
+            RedisPoolUtil.decr(com.daydreamdev.secondskill.common.StockWithRedis.RedisKeysConstant.STOCK_COUNT + stock.getId());
             RedisPoolUtil.incr(RedisKeysConstant.STOCK_SALE + stock.getId());
             RedisPoolUtil.incr(RedisKeysConstant.STOCK_VERSION + stock.getId());
             // 结束事务
